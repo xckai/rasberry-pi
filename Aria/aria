@@ -1,0 +1,27 @@
+# nginx config   /etc/nginx/sites-enabled/
+server {
+        listen 9004   default_server;
+        listen [::]:9004   default_server;
+
+        # SSL configuration
+        ssl on;
+        ssl_certificate /home/pi/server.crt;
+        ssl_certificate_key /home/pi/server.key;
+        root /var/www/aria;
+
+        # Add index.php to the list if you are using PHP
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+	location /jsonrpc {
+		proxy_pass http://127.0.0.1:6800;
+	}
+        location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                autoindex on;
+                autoindex_exact_size off;
+                autoindex_localtime on;
+                charset utf-8,gbk;
+        }
+}
