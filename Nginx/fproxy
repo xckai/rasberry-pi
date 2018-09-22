@@ -2,7 +2,7 @@ server {
     resolver 8.8.8.8;
     resolver_timeout 5s;
  
-    listen 0.0.0.0:9002;
+    listen 0.0.0.0:8002;
  
     access_log  /home/pi/logs/proxy.access.log;
     error_log   /home/pi/logs/proxy.error.log;

@@ -1,7 +1,7 @@
 # nginx config   /etc/nginx/sites-enabled/
 server {
-        listen 9004   default_server;
-        listen [::]:9004   default_server;
+        listen 8001   default_server;
+        listen [::]:8001   default_server;
 
         # SSL configuration
         ssl on;
